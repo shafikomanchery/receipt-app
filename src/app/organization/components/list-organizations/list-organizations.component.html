@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h2>Organizations</h2>
+  <hr/>
+  <div class="row">
+    <div class="col text-end">
+      <button [routerLink]="['../create']" class="btn btn-primary">Add Organization</button>
+    </div>
+  </div>
+  <div class="row mt-5">
+    @for(org of organizations; track org.orgId){
+    <div [routerLink]="['../view/1']" class="col-12 col-sm-6 col-md-3 mb-3">
+      <div class="org-card">
+        <div class="row">
+          <div class="col-12 text-end">
+            <span [ngClass]="getOrgStatusBg(org.orgStatus)" class="badge rounded-pill">{{org.orgStatus}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <img class="org-avatar" src="assets/icons/business.png" alt="org-avatar" />
+            <h5>{{org.orgName}}</h5>
+            <h4>{{org.orgRegNo}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
